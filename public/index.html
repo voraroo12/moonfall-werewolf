@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moonfall — Werewolf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header><div class="moon">☾</div><div><p class="eyebrow">SOCIAL DEDUCTION GAME</p><h1>MOONFALL <span>WEREWOLF</span></h1></div></header>
+    <section id="entry" class="panel">
+      <h2>Masuk ke desa</h2>
+      <label>Nama pemain</label><input id="name" maxlength="18" placeholder="Contoh: Axel">
+      <div class="actions"><button id="create">Buat room</button></div>
+      <div class="split"><span></span> ATAU <span></span></div>
+      <label>Kode room</label><input id="code" maxlength="4" placeholder="ABCD">
+      <button id="join" class="secondary">Gabung room</button>
+      <p class="hint">Minimal 5 pemain untuk memulai. Maksimal 10 pemain.</p>
+    </section>
+
+    <section id="game" class="hidden">
+      <div class="topline panel">
+        <div><p class="eyebrow">KODE ROOM</p><strong id="roomCode">----</strong></div>
+        <div class="phase"><span id="phaseIcon">☾</span><div><b id="phaseName">Menunggu</b><small id="dayNum">Lobby</small></div></div>
+      </div>
+      <div id="roleCard" class="role-card"><small>ROLE RAHASIAMU</small><h2 id="myRole">Belum dibagikan</h2><p id="roleHelp">Tunggu host memulai permainan.</p></div>
+      <section class="panel">
+        <div class="section-head"><h2>Pemain desa</h2><span id="playerCount" class="pill">0 pemain</span></div>
+        <div id="players" class="players"></div>
+        <button id="start" class="hidden">Mulai permainan</button>
+      </section>
+      <section id="actionPanel" class="panel hidden">
+        <h2 id="actionTitle">Aksi</h2><p id="actionDesc" class="hint"></p>
+        <select id="target"><option value="">Pilih pemain...</option></select>
+        <button id="doAction">Konfirmasi aksi</button>
+      </section>
+      <section class="panel">
+        <div class="section-head"><h2>Obrolan</h2><span id="chatMode" class="pill">Lobby</span></div>
+        <div id="messages" class="messages"></div>
+        <form id="chatForm"><input id="chatInput" maxlength="300" placeholder="Tulis pesan..." autocomplete="off"><button>Kirim</button></form>
+        <p class="hint">Saat malam, chat hanya tersedia untuk Werewolf. Pemain yang mati tidak bisa chat.</p>
+      </section>
+      <button id="leave" class="secondary">Keluar dari room</button>
+    </section>
+    <div id="toast" role="status"></div>
+    <footer>MAIN DENGAN JUJUR. CURIGAI SEMUA ORANG. 🌙</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
