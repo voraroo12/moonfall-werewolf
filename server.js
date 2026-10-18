@@ -246,4 +246,6 @@ io.on("connection", socket => {
   socket.on("disconnect", () => leaveRoom(socket));
 });
 
-server.listen(PORT, () => console.log(`Werewolf berjalan di http://localhost:${PORT}`));
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Werewolf berjalan di port ${PORT}`);
+});
