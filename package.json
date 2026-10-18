@@ -1,0 +1,11 @@
+{
+  "name": "werewolf-multiplayer",
+  "version": "1.0.0",
+  "description": "Starter game Werewolf multiplayer dengan room dan chat realtime",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
